@@ -15,13 +15,13 @@ const DifficultyBox: React.FC<IDifficultyBoxProps> = ({
 }) => {
   return (
     <div className={className}>
-      {difficulty && displayMode == 'image' && (
+      {difficulty != undefined && displayMode == 'image' && (
         <DifficultyImage difficulty={difficulty} />
       )}
-      {difficulty && displayMode == 'color' && (
+      {difficulty != undefined && displayMode == 'color' && (
         <DifficultyColor difficulty={difficulty} />
       )}
-      {!difficulty && (
+      {difficulty == undefined && (
         <Skeleton
           className='w-full h-full bg-white'
           variant={displayMode == 'image' ? 'circle' : 'square'}

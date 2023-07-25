@@ -16,7 +16,7 @@ const FlagBox: React.FC<IFlagBoxProps> = ({ countryCode }) => {
           style={{ width: '24px' }}
         />
       ) : (
-        <Skeleton className='h-4' />
+        <Skeleton className='w-6 h-4' />
       )}
     </div>
   );

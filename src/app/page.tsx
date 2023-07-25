@@ -12,55 +12,54 @@ import {
 import { Difficulty, TRecipe } from '@/types';
 import { getRecipes } from '@/actions';
 
-interface IHomeProps {
-  searchParams: {
-    search?: string;
-  };
-}
-
-export default function Home({ searchParams }: IHomeProps) {
+export default function Home() {
   const [recipes, setRecipes] = useState<TRecipe[]>([]);
   const [recipe, setRecipe] = useState<TRecipe>();
   useEffect(() => {
-    getRecipes(searchParams)
+    getRecipes()
       .then((_recipes) => {
         setRecipes(_recipes);
         setRecipe(_recipes[0]);
       })
       .catch((e) => console.error(e));
-  }, [searchParams]);
+  }, []);
+
+  const onRecipeSelect = (_recipe: TRecipe) => {
+    setRecipe(_recipe);
+  };
+
   return (
     <div className='flex flex-col justify-normal'>
-      <SearchBox />
+      <SearchBox onRecipeSelect={onRecipeSelect} />
 
       <div className='flex items-center justify-between my-6'>
         <div className='flex items-center'>
           <FlagBox countryCode={recipe?.origin} />
           {recipe ? (
-            <span className='text-sm text-white ml-[10px] text-[13px] font-medium'>
+            <div className='text-sm text-white ml-[10px] text-[13px] font-medium truncate mr-2'>
               {recipe.name}
-            </span>
+            </div>
           ) : (
-            <Skeleton className='w-8 h-4 ml-[10px]' />
+            <Skeleton className='w-9 h-4 ml-[10px]' />
           )}
         </div>
         <div className='flex items-center'>
           <Button
-            className='p-[7px] mr-[5px] text-[10px]'
+            className='p-[7px] mr-[5px] text-xs'
             color='secondary'
             variant='pill'
           >
             <FaTwitter />
           </Button>
           <Button
-            className='p-[7px] mr-[5px] text-[10px]'
+            className='p-[7px] mr-[5px] text-xs'
             color='secondary'
             variant='pill'
           >
             <FaTelegram />
           </Button>
           <Button
-            className='p-[7px] mr-[5px] text-[10px]'
+            className='p-[7px] mr-[5px] text-xs'
             color='secondary'
             variant='pill'
           >
@@ -91,7 +90,7 @@ export default function Home({ searchParams }: IHomeProps) {
                 Difficulty[recipe.difficulty]
               }`}</span>
             ) : (
-              <Skeleton className='ml-[10px] h-[24px] w-36' />
+              <Skeleton className='ml-[10px] h-[25px] w-[120px] bg-white' />
             )}
           </div>
           {recipe ? (

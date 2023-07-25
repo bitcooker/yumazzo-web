@@ -10,7 +10,7 @@ const Skeleton: React.FC<ISkeleton> = ({ variant = 'square', className }) => {
     <div
       className={clsx(
         className,
-        `animate-pulse w-full h-full bg-[#7185AA] opacity-20 ${
+        `animate-pulse bg-[#7185AA] opacity-20 ${
           variant == 'circle' && 'rounded-full'
         }`
       )}

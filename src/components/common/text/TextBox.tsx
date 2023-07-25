@@ -33,7 +33,7 @@ const TextBox: React.FC<ITextBoxProps> = ({
           {text}
         </div>
       ) : (
-        <Skeleton className='h-4 my-1' />
+        <Skeleton className='h-5 my-[2px]' />
       )}
     </div>
   );
