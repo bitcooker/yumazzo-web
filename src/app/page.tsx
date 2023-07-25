@@ -43,13 +43,15 @@ export default function Home() {
           >
             <FaMediumM />
           </Button>
-          <Button
-            className='p-[7px] rounded text-[13px] font-normal'
-            color='secondary'
-            variant='rounded'
-          >
-            + Add recipe
-          </Button>
+          <a href='/new-recipe'>
+            <Button
+              className='p-[7px] rounded text-[13px] font-normal'
+              color='secondary'
+              variant='rounded'
+            >
+              + Add recipe
+            </Button>
+          </a>
         </div>
       </div>
 

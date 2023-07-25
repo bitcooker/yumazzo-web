@@ -38,7 +38,7 @@ const DropDown: React.FC<IDropDownProps> = ({
           className='flex items-center justify-between w-full px-[11px] py-2'
           onClick={onButtonClick}
         >
-          <span>{text}</span>
+          <span className='text-[#E9EAF6]'>{text}</span>
           <IoIosArrowDown />
         </Button>
         {open && children && (
