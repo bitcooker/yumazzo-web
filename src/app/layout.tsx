@@ -20,12 +20,12 @@ export default function RootLayout({
         />
         <link
           rel='stylesheet'
-          href='https://fonts.cdnfonts.com/css/helvetica-neue-55'
+          href='https://fonts.cdnfonts.com/css/helvetica-neue-5'
         />
       </head>
       <body>
-        <div className='flex flex-col items-center justify-center min-h-screen p-2'>
-          <div className='max-w-[410px] bg-yumazzo-container-950 min-h-[630px] w-full rounded-[10px] p-6 flex flex-col justify-start'>
+        <div className='flex flex-col items-center justify-center min-h-screen p-2 font-bai-jamjuree'>
+          <div className='max-w-[410px] bg-yumazzo-neutral-100 min-h-[630px] w-full rounded-[10px] p-6 flex flex-col justify-start'>
             {children}
           </div>
         </div>
