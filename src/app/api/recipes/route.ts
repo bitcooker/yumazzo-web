@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     });
     const data = await response.json();
     if (response.status == 201) {
-        return NextResponse.json({ data: data });
+        return NextResponse.json({ data: data.message });
     }
     else if (response.status == 422) {
         return NextResponse.json({ error: data.detail[0].msg });

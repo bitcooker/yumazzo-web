@@ -20,6 +20,14 @@ export type TRecipe = {
 }
 
 export type TApiResponse = {
-    data?: any,
-    error?: string
+    data: {
+        data?: any,
+        error?: string
+    }
+}
+
+export enum MessageType {
+    'information',
+    'success',
+    'error'
 }

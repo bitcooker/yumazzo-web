@@ -10,23 +10,24 @@ import {
   TextBox,
   Skeleton,
 } from '@/components';
-import { Difficulty, TApiResponse, TRecipe } from '@/types';
+import { Difficulty, MessageType, TApiResponse, TRecipe } from '@/types';
+import { useMessageBox } from '@/hooks';
 
 export default function Home() {
   const [recipe, setRecipe] = useState<TRecipe>();
+  const messageBox = useMessageBox();
   useEffect(() => {
     axios
-      .get(`/api/recipes/get?id=1`)
+      .get(`/api/recipes/get?id=4`)
       .then((response: TApiResponse) => {
-        if (!response.error) {
+        if (!response.data.error) {
           setRecipe(response.data.data);
-          console.log(response);
         } else {
-          alert(response.error);
+          messageBox.onOpen(MessageType.error, response.data.error);
         }
       })
       .catch((e) => {
-        console.error(e);
+        messageBox.onOpen(MessageType.error, e);
       });
   }, []);
 
@@ -35,7 +36,7 @@ export default function Home() {
   };
 
   return (
-    <div className='flex flex-col justify-normal'>
+    <div className='flex flex-col w-full h-full justify-normal'>
       <SearchBox onRecipeSelect={onRecipeSelect} />
 
       <div className='flex items-center justify-between my-6'>

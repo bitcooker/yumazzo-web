@@ -5,7 +5,8 @@ import { NinetyRingWithBg } from 'react-svg-spinners';
 import countryList from 'react-select-country-list';
 import { MdArrowBackIosNew } from 'react-icons/md';
 import { Button, DropDown, TextArea, TextInput } from '@/components';
-import { Difficulty, TApiResponse } from '@/types';
+import { Difficulty, MessageType, TApiResponse } from '@/types';
+import { useMessageBox } from '@/hooks';
 
 export default function NewRecipe() {
   const [name, setName] = useState('');
@@ -25,14 +26,15 @@ export default function NewRecipe() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const options = useMemo(() => countryList().getData(), []);
+  const messageBox = useMessageBox();
 
   const onAddRecipe = () => {
     if (name == '') {
-      console.error('Name is required.');
+      messageBox.onOpen(MessageType.error, 'Name is required.');
       return;
     }
     if (originText == 'Country Origin') {
-      console.error('Please select the origin.');
+      messageBox.onOpen(MessageType.error, 'Please select the origin.');
       return;
     }
 
@@ -55,16 +57,34 @@ export default function NewRecipe() {
     axios
       .post('/api/recipes', submitData)
       .then((response: TApiResponse) => {
-        if (!response.error) {
-          console.log(response);
+        if (!response.data.error) {
+          messageBox.onOpen(MessageType.success, response.data.data);
+          clearFields();
         } else {
-          console.error(response.error);
+          messageBox.onOpen(MessageType.error, response.data.error);
+          clearFields();
         }
         setIsSubmitting(false);
       })
       .catch((e) => {
+        messageBox.onOpen(MessageType.error, e);
         setIsSubmitting(false);
+        clearFields();
       });
+  };
+
+  const clearFields = () => {
+    setName('');
+    setOrigin('');
+    setOriginText('Country Origin');
+    setDescription('');
+    setDifficulty(0);
+    setProtein('');
+    setOil('');
+    setVolume(0);
+    setServes(0);
+    setAuthenticity('Unverified');
+    setStock('');
   };
 
   return (
@@ -210,17 +230,19 @@ export default function NewRecipe() {
         onChange={(e) => setStock(e.currentTarget.value)}
       />
 
-      <Button
-        disabled={isSubmitting}
-        className='w-full mt-6 flex items-center justify-center'
-        onClick={onAddRecipe}
-      >
-        {isSubmitting ? (
-          <NinetyRingWithBg color='#FFF' />
-        ) : (
-          <span>Add Recipe</span>
-        )}
-      </Button>
+      <div className='p-1 mt-6 w-full'>
+        <Button
+          disabled={isSubmitting}
+          className='w-full flex items-center justify-center'
+          onClick={onAddRecipe}
+        >
+          {isSubmitting ? (
+            <NinetyRingWithBg color='#FFF' />
+          ) : (
+            <span>Add Recipe</span>
+          )}
+        </Button>
+      </div>
     </div>
   );
 }

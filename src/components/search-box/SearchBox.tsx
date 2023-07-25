@@ -10,7 +10,8 @@ import {
   FlagBox,
   DifficultyBox,
 } from '@/components';
-import { Difficulty, TApiResponse, TRecipe } from '@/types';
+import { Difficulty, MessageType, TApiResponse, TRecipe } from '@/types';
+import { useMessageBox } from '@/hooks';
 
 interface ISearchBoxProps {
   onRecipeSelect(recipe: TRecipe): void;
@@ -25,6 +26,7 @@ const SearchBox: React.FC<ISearchBoxProps> = ({ onRecipeSelect }) => {
     setSearchText(e.currentTarget.value);
   };
 
+  const messageBox = useMessageBox();
   const searchCountRef = useRef(0);
   const ref = useDetectClickOutside({
     onTriggered: () => setShowResults(false),
@@ -51,22 +53,20 @@ const SearchBox: React.FC<ISearchBoxProps> = ({ onRecipeSelect }) => {
     axios
       .get(`/api/search?text=${text}`)
       .then((response: TApiResponse) => {
-        if (!response.error) {
+        if (!response.data.error) {
           setRecipes(response.data.data as TRecipe[]);
-          console.log(response.data);
-          console.log(response);
           searchCountRef.current = searchCountRef.current - 1;
           setSearchCount(searchCountRef.current);
         } else {
           searchCountRef.current = searchCountRef.current - 1;
           setSearchCount(searchCountRef.current);
-          console.error(response.error);
+          messageBox.onOpen(MessageType.error, response.data.error);
         }
       })
       .catch((e) => {
         searchCountRef.current = searchCountRef.current - 1;
         setSearchCount(searchCountRef.current);
-        console.error(e);
+        messageBox.onOpen(MessageType.error, e);
       });
   };
 

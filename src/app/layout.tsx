@@ -1,5 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { MessageBox } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Yumazzo',
@@ -25,8 +26,9 @@ export default function RootLayout({
       </head>
       <body>
         <div className='flex flex-col items-center justify-center min-h-screen p-2 font-bai-jamjuree'>
-          <div className='max-w-[410px] bg-yumazzo-neutral-100 min-h-[630px] w-full rounded-[10px] p-6 flex flex-col justify-start'>
-            {children}
+          <div className='max-w-[410px] relative bg-yumazzo-neutral-100 min-h-[630px] w-full h-full rounded-[10px] flex flex-col justify-start'>
+            <div className='relative flex w-full h-full p-6'>{children}</div>
+            <MessageBox />
           </div>
         </div>
       </body>
