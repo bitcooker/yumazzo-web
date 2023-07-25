@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { FaTelegram, FaTwitter, FaMediumM } from 'react-icons/fa';
 import {
   SearchBox,
@@ -9,19 +10,20 @@ import {
   TextBox,
   Skeleton,
 } from '@/components';
-import { Difficulty, TRecipe } from '@/types';
+import { Difficulty, TApiResponse, TRecipe } from '@/types';
 import { getRecipes } from '@/actions';
 
 export default function Home() {
-  const [recipes, setRecipes] = useState<TRecipe[]>([]);
   const [recipe, setRecipe] = useState<TRecipe>();
   useEffect(() => {
-    getRecipes()
-      .then((_recipes) => {
-        setRecipes(_recipes);
-        setRecipe(_recipes[0]);
+    axios
+      .get(`/api/recipes/get?id=1`)
+      .then((response: TApiResponse) => {
+        setRecipe(response.data.data);
       })
-      .catch((e) => console.error(e));
+      .catch((e) => {
+        console.error(e);
+      });
   }, []);
 
   const onRecipeSelect = (_recipe: TRecipe) => {

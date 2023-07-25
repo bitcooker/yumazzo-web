@@ -18,3 +18,8 @@ export type TRecipe = {
     authenticity: string,
     stock: string
 }
+
+export type TApiResponse = {
+    data?: any,
+    error?: string
+}
