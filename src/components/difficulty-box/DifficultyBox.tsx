@@ -1,8 +1,9 @@
 import React from 'react';
 import { Difficulty } from '@/types';
+import { Skeleton } from '@/components';
 
 interface IDifficultyBoxProps {
-  difficulty: Difficulty;
+  difficulty?: number;
   displayMode: 'image' | 'color';
   className?: string;
 }
@@ -14,8 +15,18 @@ const DifficultyBox: React.FC<IDifficultyBoxProps> = ({
 }) => {
   return (
     <div className={className}>
-      {displayMode == 'image' && <DifficultyImage difficulty={difficulty} />}
-      {displayMode == 'color' && <DifficultyColor difficulty={difficulty} />}
+      {difficulty && displayMode == 'image' && (
+        <DifficultyImage difficulty={difficulty} />
+      )}
+      {difficulty && displayMode == 'color' && (
+        <DifficultyColor difficulty={difficulty} />
+      )}
+      {!difficulty && (
+        <Skeleton
+          className='w-full h-full bg-white'
+          variant={displayMode == 'image' ? 'circle' : 'square'}
+        />
+      )}
     </div>
   );
 };

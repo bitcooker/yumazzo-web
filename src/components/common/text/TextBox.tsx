@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { Skeleton } from '@/components';
 
 interface ITextBoxProps {
   label?: string;
@@ -19,17 +20,21 @@ const TextBox: React.FC<ITextBoxProps> = ({
       {label && (
         <div className='text-[#7185AA] text-[13px] font-normal'>{label}</div>
       )}
-      <div
-        className={clsx(
-          className,
-          'font-medium text-base font-helvetica-neue',
-          variant == 'gradient'
-            ? 'bg-gradient-to-br from-[#FFBF43] to-[#FF4869] font-semibold text-transparent bg-clip-text'
-            : 'text-white'
-        )}
-      >
-        {text}
-      </div>
+      {text ? (
+        <div
+          className={clsx(
+            className,
+            'font-medium text-base font-helvetica-neue',
+            variant == 'gradient'
+              ? 'bg-gradient-to-br from-[#FFBF43] to-[#FF4869] font-semibold text-transparent bg-clip-text'
+              : 'text-white'
+          )}
+        >
+          {text}
+        </div>
+      ) : (
+        <Skeleton className='h-4 my-1' />
+      )}
     </div>
   );
 };
