@@ -10,7 +10,7 @@ import {
   FlagBox,
   DifficultyBox,
 } from '@/components';
-import { Difficulty, TRecipe } from '@/types';
+import { Difficulty, TApiResponse, TRecipe } from '@/types';
 
 interface ISearchBoxProps {
   onRecipeSelect(recipe: TRecipe): void;
@@ -50,10 +50,18 @@ const SearchBox: React.FC<ISearchBoxProps> = ({ onRecipeSelect }) => {
     setSearchCount(searchCountRef.current);
     axios
       .get(`/api/search?text=${text}`)
-      .then((response) => {
-        setRecipes(response.data.recipes as TRecipe[]);
-        searchCountRef.current = searchCountRef.current - 1;
-        setSearchCount(searchCountRef.current);
+      .then((response: TApiResponse) => {
+        if (!response.error) {
+          setRecipes(response.data.data as TRecipe[]);
+          console.log(response.data);
+          console.log(response);
+          searchCountRef.current = searchCountRef.current - 1;
+          setSearchCount(searchCountRef.current);
+        } else {
+          searchCountRef.current = searchCountRef.current - 1;
+          setSearchCount(searchCountRef.current);
+          console.error(response.error);
+        }
       })
       .catch((e) => {
         searchCountRef.current = searchCountRef.current - 1;

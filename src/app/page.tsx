@@ -11,15 +11,19 @@ import {
   Skeleton,
 } from '@/components';
 import { Difficulty, TApiResponse, TRecipe } from '@/types';
-import { getRecipes } from '@/actions';
 
 export default function Home() {
   const [recipe, setRecipe] = useState<TRecipe>();
   useEffect(() => {
     axios
-      .get(`/api/recipes/get?id=1`)
+      .get(`/api/recipes/get?id=1111sdfsd1`)
       .then((response: TApiResponse) => {
-        setRecipe(response.data.data);
+        if (!response.error) {
+          // setRecipe(response.data.data);
+          console.log(response);
+        } else {
+          alert(response.error);
+        }
       })
       .catch((e) => {
         console.error(e);
