@@ -14,9 +14,7 @@ const TextInput: React.FC<ITextInputProps> = ({
   unit,
   onChange,
 }) => {
-  const [inputText, setInputText] = useState(text);
   const onInputTextChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setInputText(e.currentTarget.value);
     onChange && onChange(e);
   };
   return (
@@ -32,7 +30,7 @@ const TextInput: React.FC<ITextInputProps> = ({
           className={`w-full py-2 pl-[11px] ${
             unit ? 'pr-16' : 'pr-[11px]'
           } outline-none border border-[#5B6178] bg-[#131823] rounded-[6px] text-white focus:ring-4 focus:ring-[#B89FFF] focus:border-[#663CDD]`}
-          value={inputText}
+          value={text}
           onChange={onInputTextChange}
         />
         <span className='absolute w-full h-full items-center flex flex-row-reverse text-sm text-[#E9EAF6] top-0 left-0 pr-[11px] pointer-events-none'>

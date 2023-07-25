@@ -16,10 +16,10 @@ export default function Home() {
   const [recipe, setRecipe] = useState<TRecipe>();
   useEffect(() => {
     axios
-      .get(`/api/recipes/get?id=1111sdfsd1`)
+      .get(`/api/recipes/get?id=1`)
       .then((response: TApiResponse) => {
         if (!response.error) {
-          // setRecipe(response.data.data);
+          setRecipe(response.data.data);
           console.log(response);
         } else {
           alert(response.error);

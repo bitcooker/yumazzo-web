@@ -8,6 +8,7 @@ interface IDropDownProps {
   label?: string;
   text?: string;
   isOpen?: boolean;
+  setMenu(isOpen: boolean): void;
   children?: React.ReactNode;
 }
 
@@ -15,13 +16,13 @@ const DropDown: React.FC<IDropDownProps> = ({
   label,
   text,
   isOpen = false,
+  setMenu,
   children,
 }) => {
-  const [open, setOpen] = useState(isOpen);
-  const ref = useDetectClickOutside({ onTriggered: () => setOpen(false) });
+  const ref = useDetectClickOutside({ onTriggered: () => setMenu(false) });
 
   const onButtonClick = () => {
-    setOpen(!open);
+    setMenu(!isOpen);
   };
   return (
     <div>
@@ -38,12 +39,14 @@ const DropDown: React.FC<IDropDownProps> = ({
           className='flex items-center justify-between w-full px-[11px] py-2'
           onClick={onButtonClick}
         >
-          <span className='text-[#E9EAF6]'>{text}</span>
+          <span className='text-[#E9EAF6] truncate'>{text}</span>
           <IoIosArrowDown />
         </Button>
-        {open && children && (
-          <div className='absolute bg-[#121826] rounded-[6px] p-2 mt-[11px] w-full'>
-            {children}
+        {isOpen && children && (
+          <div className='absolute  bg-[#121826] rounded-[6px] p-2 mt-[11px] w-full border border-[#8C92AB] z-50'>
+            <div className='flex flex-col max-h-[150px] overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-[#663CDD] scrollbar-thumb-rounded p-1'>
+              {children}
+            </div>
           </div>
         )}
       </div>
