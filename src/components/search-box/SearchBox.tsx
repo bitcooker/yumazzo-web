@@ -78,7 +78,7 @@ const SearchBox: React.FC<ISearchBoxProps> = ({ onRecipeSelect }) => {
         onChange={onSearchTextChange}
       />
       {showResults && (
-        <div className='absolute mt-[11px] w-full px-2 rounded-[6px] bg-[#121826] h-[141px] shadow-2xl py-1'>
+        <div className='z-40 absolute mt-[11px] w-full px-2 rounded-[6px] bg-[#121826] h-[141px] shadow-2xl py-1'>
           <div className='overflow-auto h-full scrollbar-thin scrollbar-thumb-[#663CDD] scrollbar-thumb-rounded'>
             {searchCount == 0 ? (
               <div>

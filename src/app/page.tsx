@@ -85,7 +85,13 @@ export default function Home() {
       </div>
 
       <div className='p-[10px] bg-[#131823] rounded-[6px] font-helvetica-neue font-normal'>
-        <div className='px-5 py-[10px] bg-[#17CFC4] rounded-[6px] min-h-[180px]'>
+        <div
+          className={`px-5 py-[10px] ${
+            recipe?.difficulty == 2
+              ? 'bg-[#41479B] text-white'
+              : 'bg-[#17CFC4] text-black'
+          } rounded-[6px] min-h-[180px]`}
+        >
           <div className='flex items-center'>
             <DifficultyBox
               displayMode='image'
@@ -101,7 +107,9 @@ export default function Home() {
             )}
           </div>
           {recipe ? (
-            <p className='mt-[15px]'>{recipe?.description}</p>
+            <p className='mt-[15px] font-normal text-base'>
+              {recipe?.description}
+            </p>
           ) : (
             <div className='mt-[15px]'>
               <Skeleton className='m-1 h-5 w-[80%]' />
