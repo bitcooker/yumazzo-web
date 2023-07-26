@@ -1,20 +1,21 @@
-# YUMAZZO
+# 🍲 YUMAZZO
 A front end engineering challenge designed to test the ability to cook great products based on tasty design specifications.
 
 
 ![image](https://github.com/bitcooker/yumazzo-web/assets/128102810/fa2b412a-50f7-40ec-bd1e-f05f2533615c)
 
 
-### Live Demo
+## 🚀 Live Demo
+### Web
 - [yumazzo-web.vercel.app](https://yumazzo-web.vercel.app/)
 
 ### Google Chrome Extension
 - [Google Chrome Extension](https://github.com/bitcooker/yumazzo-web/files/12175462/yumazzo-extension.zip)
 
-![image](https://github.com/bitcooker/yumazzo-web/assets/128102810/7b65c951-d3f7-44f3-b274-c1cb06a9d794)
+![image](https://github.com/bitcooker/yumazzo-web/assets/128102810/45175557-59a0-4a0c-a0ef-8cbee12666af)
 
 
-## Challenge Summary
+## 📜 Challenge Summary
 The goal of the Yumazoo challenge is to create a seamless user experience for accessing and managing recipes. 
 There is a Figma file that contains the design and layout specifications for the front-end.
 
@@ -32,7 +33,7 @@ Overall, the front-end implementation should provide a responsive and intuitive 
 
 
 
-## Technologies
+## ⚛ Technologies
 - React/Next.js
 - TypeScript
 - Tailwind CSS
@@ -40,7 +41,7 @@ Overall, the front-end implementation should provide a responsive and intuitive 
 - Google Chrome Extension
 
 
-## How To Run
+## 📔 How To Run
 ### Google Chrome Extension
 - Download here: [yumazzo](https://github.com/bitcooker/yumazzo-web/files/12175462/yumazzo-extension.zip)
 - Unzip the downloaded file.
