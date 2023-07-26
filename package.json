@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:extension": "next build && next export && npm run lint:build",
+    "lint:build": "mv out/_next out/assets && sed -i 's/\\\\/_next/\\\\/assets/g' out/**.html",
+    "package": "npm run build:extension && zip -r packages/$(date -u +\"%Y-%m-%dT%H:%M:%SZ\").zip out"
   },
   "dependencies": {
     "@types/lodash": "^4.14.195",
@@ -21,6 +24,7 @@
     "eslint-config-next": "13.4.12",
     "lodash": "^4.17.21",
     "next": "13.4.12",
+    "node-watch": "^0.7.3",
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-country-flag": "^3.1.0",
