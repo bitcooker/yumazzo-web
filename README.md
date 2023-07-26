@@ -10,7 +10,7 @@ A front end engineering challenge designed to test the ability to cook great pro
 - [yumazzo-web.vercel.app](https://yumazzo-web.vercel.app/)
 
 ### Google Chrome Extension
-- [Google Chrome Extension](https://github.com/bitcooker/yumazzo-web/files/12175462/yumazzo-extension.zip)
+- [Google Chrome Extension](https://github.com/bitcooker/yumazzo-web/files/12175624/yumazzo-extension.zip)
 
 ![image](https://github.com/bitcooker/yumazzo-web/assets/128102810/45175557-59a0-4a0c-a0ef-8cbee12666af)
 
@@ -43,7 +43,7 @@ Overall, the front-end implementation should provide a responsive and intuitive 
 
 ## 📔 How To Run
 ### Google Chrome Extension
-- Download here: [yumazzo](https://github.com/bitcooker/yumazzo-web/files/12175462/yumazzo-extension.zip)
+- Download here: [yumazzo](https://github.com/bitcooker/yumazzo-web/files/12175624/yumazzo-extension.zip)
 - Unzip the downloaded file.
 - Head over to `chrome://extensions` in a new Chrome browser window.
 - Enable `Developer Mode`, and click on the `Load Unpacked` button.
