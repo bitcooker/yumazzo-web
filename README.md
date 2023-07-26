@@ -23,7 +23,7 @@ In addition to the search functionality, all other API endpoints should be integ
 Overall, the front-end implementation should provide a responsive and intuitive user interface that seamlessly integrates with our backend API. The Figma file serves as a visual guide for the design, and the developer should ensure that all endpoints are properly integrated and that the search bar functionality allows users to search for existing recipes by name.
 
 ### Resources
-- [Figma Design](https://nextjs.org/docs)
+- [Figma Design](https://www.figma.com/file/jSGFmQ6NFxMtTA7GimBaXz/Yumazzo?type=design&node-id=203-5867&mode=design&t=a1zevJqL1WQj80H0-0)
 - [API Endpoints](https://master-7rqtwti-yj2le3kr2yhmu.uk-1.platformsh.site/endpoints#)
 
 
