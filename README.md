@@ -6,13 +6,13 @@ A front end engineering challenge designed to test the ability to cook great pro
 
 
 ### Live Demo
-- [Web](https://yumazzo-web.vercel.app/)
+- [yumazzo-web.vercel.app](https://yumazzo-web.vercel.app/)
 
 ### Google Chrome Extension
+Download here :
+- [Google Chrome Extension](https://github.com/bitcooker/yumazzo-web/files/12175462/yumazzo-extension.zip)
 
-![image](https://github.com/bitcooker/yumazzo-web/assets/128102810/acd30103-6689-4a23-935f-32fd51dd788f)
-
-[yumazzo-extension.zip](https://github.com/bitcooker/yumazzo-web/files/12175462/yumazzo-extension.zip)
+![image](https://github.com/bitcooker/yumazzo-web/assets/128102810/7b65c951-d3f7-44f3-b274-c1cb06a9d794)
 
 
 ## Challenge Summary
