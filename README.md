@@ -1,8 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# YUMAZZO
+A front end engineering challenge designed to test the ability to cook great products based on tasty design specifications.
 
-## Getting Started
 
-First, run the development server:
+![image](https://github.com/bitcooker/yumazzo-web/assets/128102810/fa2b412a-50f7-40ec-bd1e-f05f2533615c)
+
+
+### Live Demo
+- [Web](https://yumazzo-web.vercel.app/)
+- [Google Chrome Extension]()
+
+
+## Challenge Summary
+The goal of the Yumazoo challenge is to create a seamless user experience for accessing and managing recipes. 
+There is a Figma file that contains the design and layout specifications for the front-end.
+
+The application output should be a Google Chrome Extension, and should utilize the provided Figma file as a reference to ensure a consistent and visually appealing interface. The design elements, including colors, typography, and spacing, should be implemented according to the specifications in the Figma file. The task is to translate the design into HTML, CSS, and JavaScript code.
+
+One of the key requirements is to implement a search bar that allows users to search for existing recipes based on their names. The search functionality should send a request to the appropriate backend endpoint and display the search results dynamically on the front-end interface. The search bar should provide real-time suggestions as the user types, enhancing the usability of the application.
+
+In addition to the search functionality, all other API endpoints should be integrated into the front-end application. This includes retrieving a list of recipes, retrieving a specific recipe by ID, and adding a new recipe to the server. The front-end should handle HTTP requests and responses appropriately, displaying any error messages returned by the backend API in a user-friendly manner.
+
+Overall, the front-end implementation should provide a responsive and intuitive user interface that seamlessly integrates with our backend API. The Figma file serves as a visual guide for the design, and the developer should ensure that all endpoints are properly integrated and that the search bar functionality allows users to search for existing recipes by name.
+
+### Resources
+- [Figma Design](https://nextjs.org/docs)
+- [API Endpoints](https://master-7rqtwti-yj2le3kr2yhmu.uk-1.platformsh.site/endpoints#)
+
+
+
+## Technologies
+- React/Next.js
+- TypeScript
+- Tailwind CSS
+- Other packages : lodash, react-select-country-list, react-country-flag, axios, clsx, react-detect-click-outside, react-svg-spinners, zustand, tailwind-scrollbar
+- Google Chrome Extension
+
+
+
+## How To Run
+- Clone the project
+- Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+- Fill `.env` variables
+  
+```bash
+NEXT_PUBLIC_API_ENDPOINT = 
+```
+
+- Run the development server:
 
 ```bash
 npm run dev
@@ -12,23 +63,4 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
